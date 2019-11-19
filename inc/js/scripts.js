@@ -14,7 +14,8 @@ var clusterize, chks = [],
         Litecoin: "LTC",
         Cardano: "ADA",
         Monero: "XMR",
-        Tether: "USDT"
+        Tether: "USDT",
+        Dash:"DASH"
     },
     currency = "USD",
     interval_price = 6e4,
