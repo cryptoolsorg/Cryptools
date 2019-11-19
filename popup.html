@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" href="inc/css/clusterize.css">
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="inc/css/chrome.css">
+
+<header>
+    <div class="container flex">
+        <div class="buttons-left">
+            <div id="button-back"></div>
+            <div id="button-settings" title="Go To Settings"></div>
+        </div>
+        <div class="header-center">
+            <div id="logo"></div>
+        </div>
+        <div class="buttons-right">
+            <div id="button-notification" title="Set Alert"></div>
+            <div id="button-calculator" title="Currency Exchange"></div>
+            <div id="button-graph" title="Coin Graphs"></div>
+            <div id="button-explorer" title="Blockchain Explorer"></div>
+            <div id="button-add-coins" title="Add Coins"></div>
+        </div>
+    </div>
+</header>
+
+<body ng-app = "myApp" ng-controller="myCtrl" style="background-color: whitesmoke"></body>
+
+<section id="loading">
+    <div class="loader">
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+        <div class="spinner-blade"></div>
+    </div>
+</section>
+<section id="ticker">
+    <div id="alert"> <span>Thank you for using Cryptools!</span>
+        <div id="close-alert"></div>
+    </div>
+    <div id="placeholder" class="ti">
+        <div class="ti-icon"></div>
+        <div class="ti-content">
+            <div>
+                <div class="ti-name"></div>
+                <div class="ti-symbol"></div>
+            </div>
+            <div>
+                <div class="ti-price"><span class="sign">$</span>&nbsp;<span class="amount"></span></div>
+                <div class="ti-change"></div>
+            </div>
+        </div>
+        <div class="ti-arrow"></div>
+    </div>
+    <div id="welcome">You haven't set up any coins to track. Click the plus below to start tracking coin prices now!
+    </div>
+</section>
+<section id="notification">
+
+    <div id="tab-5" class="col s12" style="padding: 2%; font-size: 14px;">
+        <span>
+        Notify me when there is a sudden change in BTC Price (more than 5% change in 30 minutes)
+        <br>
+        <br>
+        <label><h5>Off</h5></label>
+        <div class="switch">
+            <label>
+              <input id="anomaly_notify" type="checkbox">
+              <span class="lever"></span>
+            </label>
+            <label><h5>On</h5></label>
+        </div>
+        </span>
+        <br>
+        <br>
+        Notify me when there BTC Price changes more than a threshold percentage on a day
+        <br>
+        <br>
+        <label><h5>Off</h5></label>
+        <div class="switch">
+            <label>
+              <input id="pct_notify" type="checkbox">
+              <span class="lever"></span>      
+            </label>
+            <label><h5>On</h5></label>
+        </div>
+        <br>
+        <br>
+        Threshold percentage
+        <br>
+        <br>
+        <select id="pct_notify_val" class="browser-default">
+          <option value="5">5 %</option>
+          <option value="10">10 %</option>
+          <option value="25">25 %</option>
+          <option value="50">50 %</option>
+          <option value="100">100 %</option>
+        </select>
+        </span>
+    </div>
+    
+</section>
+
+<section id="tracking">
+    <div id="loader-tracking">
+        <div class="loader">
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+            <div class="spinner-blade"></div>
+        </div>
+    </div>
+    <div class="filter">
+        <div id="filter-icon"></div><input id="filter-bar" type="text" autocomplete="off" autocorrect="off"
+            autocapitalize="off" spellcheck="false" placeholder="Search for coins...">
+        <div id="clear-filter" tabindex="0"></div>
+        <div id="uncheck-all" class="button">Uncheck All</div>
+    </div>
+    <div id="checkboxes" class="clusterize-scroll">
+        <div id="contentArea" class="clusterize-content"></div>
+    </div>
+</section>
+<section id="explorer">
+        <link rel="stylesheet" href="css/bootstrap-3.3.7.min.css">
+        <div class="container-fluid">
+                <div class="form-group">
+                 
+                        <h4 class="text-center">Blockchain Explorer</h4>
+                    
+                    <label for="block">Search by</label>
+                    <input type="text" class="form-control" id="block" value="" placeholder="Wallet Address or Transaction ID">
+                </div>
+                <div class="form-group">
+                    <label>Blockhain</label>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="blockchain" data-value="bitcoin" data-toggle="dropdown">
+                            Bitcoin
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-value="bitcoin">Bitcoin</a></li>
+                            <li><a href="#" data-value="ethereum">Ethereum</a></li>
+                            <li><a href="#" data-value="litecoin">Litecoin</a></li>
+                            <li><a href="#" data-value="ripple">Ripple</a></li>
+                            <li><a href="#" data-value="ripple">Dash</a></li>
+                            <li><a href="#" data-value="tether">Tether</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" id="search" class="btn btn-primary btn-block">Search</button>
+                </div>
+            </div>
+            
+            <script src="js/jquery.min.js"></script>
+            <script src="js/bootstrap-3.3.7.min.js"></script>
+            <script src="js/script.js"></script>
+</section>
+
+<section id="graph">
+
+    
+
+    <body style="width:100% ; padding:10px;">
+        <div>
+            <div class="btn-group" role="currency" style="margin-left:5px; float:left;margin-bottom:10px;">
+                <button type="button" id="BTC" class="btn btn-default">BTC <span class="price"></span></button>
+                <button type="button" id="ETH" class="btn btn-default" >ETH <span class="price"></span></button>
+                <button type="button" id="LTC" class="btn btn-default">LTC <span class="price"></span></button>
+                <button type="button" id="XRP" class="btn btn-default">XRP <span class="price"></span></button>
+                <button type="button" id="DASH" class="btn btn-default">DASH <span class="price"></span></button>
+            </div>
+    
+            <div class="btn-group" role="timeline" style="margin-right:5px; float:right;">
+                <button type="button" id="hour" class="btn btn-info">1H</button>
+                <button type="button" id="day" class="btn btn-default">1D</button>
+                <button type="button" id="week" class="btn btn-default">1W</button>
+                <button type="button" id="month" class="btn btn-default">1M</button>
+                <button type="button" id="year" class="btn btn-default">1Y</button>
+                <button type="button" id="all" class="btn btn-default">ALL</button>
+            </div>
+        </div>
+        <canvas id="container" style="width: 100%; height: 400px;display:none;"></canvas>
+
+</section>
+
+<section id="calculator">
+
+    <div class="container">
+        <form>
+          <div class="form-group">
+    
+  
+        <h4 class="text-center">Cryptocurrency Converter</h4>
+    
+              
+                  <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                           <td>
+                              <select class="form-control" ng-model="selectedCoin" ng-options="x for (x, y) in crypto" readonly>
+                                <option value="" disabled selected>Select Cryptocurrency</option>
+                                </select>
+                            </td>
+    
+                            <td>
+                              <input type="number" class="form-control margintop" ng-model = "coin" >
+                            </td> 
+                        </tr>
+    
+                        <tr>
+                            <td>
+                                <select class="form-control" ng-model="selectedCurrency" ng-options="x for x in currency" readonly>
+                                  <option value="" disabled selected>Select Fiat Currency</option>
+                                  <option value="" disabled>Currency</option>
+                                </select>
+                            </td>
+    
+                            <td>
+                              <input type="number" class="form-control margintop" ng-model="selectedCoin()">
+                            </td>
+    
+                        </tr>
+    
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+        </form>  
+      </div>
+
+
+
+    
+</section>
+
+<section id="settings">
+    <ul>
+        <li class="setting">
+            <div>
+                <div class="setting-name">Base Currency</div>
+                <div class="setting-description">Prices are shown in this currency</div>
+            </div>
+            <div class="setting-control"> <select id="currency">
+                    <option id="c_aud" value="AUD">AUD</option>
+                    <option id="c_brl" value="BRL">BRL</option>
+                    <option id="c_cad" value="CAD">CAD</option>
+                    <option id="c_chf" value="CHF">CHF</option>
+                    <option id="c_clp" value="CLP">CLP</option>
+                    <option id="c_cny" value="CNY" data-symbol="&#165;">CNY</option>
+                    <option id="c_czk" value="CZK">CZK</option>
+                    <option id="c_dkk" value="DKK">DKK</option>
+                    <option id="c_eur" value="EUR" data-symbol="&#8364;">EUR</option>
+                    <option id="c_gbp" value="GBP" data-symbol="&#163;">GBP</option>
+                    <option id="c_hkd" value="HKD">HKD</option>
+                    <option id="c_huf" value="HUF">HUF</option>
+                    <option id="c_idr" value="IDR">IDR</option>
+                    <option id="c_ils" value="ILS" data-symbol="&#8362;">ILS</option>
+                    <option id="c_inr" value="INR" data-symbol="&#8377;">INR</option>
+                    <option id="c_jpy" value="JPY" data-symbol="&#165;">JPY</option>
+                    <option id="c_krw" value="KRW" data-symbol="&#8361;">KRW</option>
+                    <option id="c_mxn" value="MXN">MXN</option>
+                    <option id="c_myr" value="MYR">MYR</option>
+                    <option id="c_nok" value="NOK">NOK</option>
+                    <option id="c_nzd" value="NZD">NZD</option>
+                    <option id="c_php" value="PHP" data-symbol="&#8369;">PHP</option>
+                    <option id="c_pkr" value="PKR">PKR</option>
+                    <option id="c_pln" value="PLN" data-symbol="z&#322;">PLN</option>
+                    <option id="c_rub" value="RUB">RUB</option>
+                    <option id="c_sek" value="SEK">SEK</option>
+                    <option id="c_sgd" value="SGD">SGD</option>
+                    <option id="c_thb" value="THB" data-symbol="&#3647;">THB</option>
+                    <option id="c_try" value="TRY" data-symbol="&#8378;">TRY</option>
+                    <option id="c_twd" value="TWD">TWD</option>
+                    <option id="c_usd" value="USD" data-symbol="&#36;" selected="selected">USD</option>
+                    <option id="c_zar" value="ZAR">ZAR</option>
+                    <option disabled>&#9472;&#9472;&#9472;</option>
+                    <option id="c_btc" value="BTC" data-symbol="&#579;">BTC</option>
+                </select></div>
+        </li>
+    </ul>
+    <div class="setting">
+        <div class="setting-name">Information</div>
+        <div class="setting-description"> Price data is graciously provided by <a
+                data-link="https://coinmarketcap.com">CoinMarketCap</a>. It's updated when you open the extension
+            popover. It is limited to update every 60 seconds. If you open the popover multiple times within a 60
+            seconds timeframe it will use old data until those 60 seconds have passed.</div>
+    </div>
+    <div class="setting">
+        <div class="setting-name">Badge Settings</div>
+        <div class="setting-description"> Choose which price you want to see on the badge after you closed this page. Bitcoin or Ethereum price?</div>
+        
+        <div class="switch">
+                <label>
+                    <input type="checkbox" ng-model="s.switch" ng-change="save()">
+                    <span data-on="Bitcoin" data-off="Ethereum" class="slider round"></span>
+                </label>
+        </div>
+
+    </div>
+    <div class="setting">
+        <div class="setting-name">Reset All Settings</div>
+        <div class="setting-description"> Extension settings are saved in the local storage of your browser. If you
+            clear your browser&apos;s local storage, you will reset all the settings for this extension. If you'd like
+            to clear the settings now, click the button below.</div><button id="reset" class="button">Reset All
+            Settings</button>
+    </div>
+</section>
+<script src="inc/js/coin_list.js"></script>
+<script src="inc/js/clusterize.js"></script>
+<script src="inc/js/chrome.js"></script>
+<script src="inc/js/scripts.js"></script>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/popup.js"></script>
+<script src="js/ctrl.js"></script>
