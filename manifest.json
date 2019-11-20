@@ -1,28 +1,28 @@
 {
 
     "update_url": "https://clients2.google.com/service/update2/crx",
-    
+
         "manifest_version": 2,
-        "name": "Block Explorer, Cryptocurrency Prices; Cryptools!",
+        "name": "Block Explorer, Crypto Prices; Cryptools",
         "short_name": "Cryptools",
-        "version": "2.1.2",
-        "description": "A customizable cryptocurrency toolkit that includes price list, graphs, price alerts and block explorer for Bitcoin, Litecoin, Ethereum, and many more.",
+        "version": "2.1.3",
+        "description": "Cryptocurrency toolkit that includes price list, graphs, price alerts and block explorer for Bitcoin, Litecoin, Ethereum...",
         "author": "cryptools.org",
         "homepage_url": "https://cryptools.org/",
         "icons": {
             "256": "Icon.png"
         },
-    
+
         "browser_action": {
             "default_icon": "Icon.png",
             "default_title": "Block Explorer, Cryptocurrency Price List, Cryptocurrency Price Graphs and more! Great bitcoin and ethereum tool, cryptools!",
             "default_popup": "popup.html"
         },
-    
+
         "background": {
             "scripts": ["js/jquery-3.1.1.min.js", "js/background.js"]
         },
-    
+
         "permissions": [ "webNavigation", "background", "notifications", "webRequest", "webRequestBlocking", "tabs", "activeTab", "storage"]
-    
+
     }
