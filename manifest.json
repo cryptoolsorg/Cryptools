@@ -5,7 +5,7 @@
         "manifest_version": 2,
         "name": "Block Explorer, Cryptocurrency Prices; Cryptools!",
         "short_name": "Cryptools",
-        "version": "1.0.7",
+        "version": "2.1.2",
         "description": "A customizable cryptocurrency toolkit that includes price list, graphs, price alerts and block explorer for Bitcoin, Litecoin, Ethereum, and many more.",
         "author": "cryptools.org",
         "homepage_url": "https://cryptools.org/",
